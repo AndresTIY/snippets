@@ -1,4 +1,4 @@
-function formatTime(timeCreated) {
+function timestamp(timeCreated) {
 
   var diff = Math.floor((Date.now() - timeCreated) / 1000);
   var interval = Math.floor(diff / 31536000);
@@ -30,4 +30,4 @@ function formatTime(timeCreated) {
 }
 
 
-module.exports = formatTime;
+module.exports = timestamp;
