@@ -1,41 +1,43 @@
-function timestamp(timeCreated) {
-
-  var diff = Math.floor((Date.now() - timeCreated) / 1000);
-  var interval = Math.floor(diff / 31536000);
-
+function timestamp(timeCreated){
+  const diff = Math.floor((Date.now() - timeCreated) / 1000);
+  let interval = Math.floor(diff / 31536000);
   if (interval >= 1) {
-    return interval + "y";
+    return `${interval}y`;
   }
   interval = Math.floor(diff / 2592000);
   if (interval >= 1) {
-    return interval + "m";
+    return `${interval}mo`;
   }
   interval = Math.floor(diff / 604800);
   if (interval >= 1) {
-    return interval + "w";
+    const weeks = `${interval}w`;
+    if (weeks === '4w') {
+      return '1mo';
+    }
+    return weeks;
   }
   interval = Math.floor(diff / 86400);
   if (interval >= 1) {
-    return interval + "d";
+    return `${interval}d`;
   }
   interval = Math.floor(diff / 3600);
   if (interval >= 1) {
-    return interval + "h";
+    return `${interval}h`;
   }
   interval = Math.floor(diff / 60);
   if (interval >= 1) {
-    return interval + " m";
+    return `${interval}m`;
   }
-  return "<1m";
+  return '<1m';
 }
 
-var periods = {
-  month: 30 * 24 * 60 * 60 * 1000,
-  week: 7 * 24 * 60 * 60 * 1000,
-  day: 24 * 60 * 60 * 1000,
-  hour: 60 * 60 * 1000,
-  minute: 60 * 1000
-};
+// var periods = {
+//   month: 30 * 24 * 60 * 60 * 1000,
+//   week: 7 * 24 * 60 * 60 * 1000,
+//   day: 24 * 60 * 60 * 1000,
+//   hour: 60 * 60 * 1000,
+//   minute: 60 * 1000
+// };
 
 // function timestamp(timeCreated) {
 //   var diff = Date.now() - timeCreated;

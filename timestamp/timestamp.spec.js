@@ -2,7 +2,7 @@
 var timestamp = require("./timestamp");
 describe("Convert milliseconds", function() {
 
-  xit("should output seconds", function() {
+  it("should output seconds", function() {
     expect(timestamp(1510520707723)).toEqual(/[0-9]/ + 'm');
   });
   // need to grab current milliseconds and run this
@@ -11,23 +11,23 @@ describe("Convert milliseconds", function() {
   // this is a unix timestamp and will not work
   // 1510520707723 = 11/12/17 @  15:05:07 this works
 
-  xit("should output minutes", function() {
+  it("should output minutes", function() {
     expect(timestamp(1510520707723)).toEqual(/[0-9]/ + 'm');
   });
 
-  xit("should output hours", function() {
+  it("should output hours", function() {
     expect(timestamp(1510509661000)).toEqual('3h');
   });
-  xit("should output days", function() {
+  it("should output days", function() {
     expect(timestamp(1510164061000)).toEqual('4d');
     // 1510164061000 = 11/08/17 @ 12:01:01
   });
-  xit("should output weeks", function() {
+  it("should output weeks", function() {
     expect(timestamp(1508189037313)).toEqual('3w');
     // 1509469261000 = 10/31/2017 @ 12:01:01
   });
   it("should output months period", function() {
-    expect(timestamp(1508086861000)).toEqual('1m');
+    expect(timestamp(1508086861000)).toEqual('1mo');
     // 1508086861000 = 10/15/2017 @ 12:01:01
   });
   it("should output year period", function() {
